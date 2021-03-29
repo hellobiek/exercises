@@ -16,11 +16,11 @@ def compute_min_times(arrs):
         if val not in visited_nums:
             circles = get_circles(val, arrs)
             visited_nums.extend(circles)
-            import pdb
-            pdb.set_trace()
             if len(circles) > 1:
-                if 0 not in circles: min_times += 1
-                min_times += len(circles)
+                if 0 not in circles:
+                    min_times = min_times + len(circles) + 1
+                else:
+                    min_times += len(circles) - 1
     else:
         return min_times
 
